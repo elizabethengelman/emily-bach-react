@@ -1,0 +1,41 @@
+body {
+  background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+div.gallery {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 180px;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Shadows Into Light Two', cursive;
+  font-size: 4em;
+}
+
+h2 {
+  font-family: 'Raleway', sans-serif;
+}
+
+font-family: 'Shadows Into Light Two', cursive;
+font-family: 'Coming Soon', cursive;
+font-family: 'Delius', cursive;
