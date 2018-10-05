@@ -1,4 +1,5 @@
 import React from 'react';
+import { Slide } from 'react-slideshow-image';
 import ReactDOM from 'react-dom';
 import './index.css';
 
@@ -11,6 +12,15 @@ class Title extends React.Component {
       </div>
     )
   }
+}
+
+
+const properties = {
+  duration: 5000,
+  transitionDuration: 500,
+  infinite: true,
+  indicators: true,
+  arrows: true,
 }
 
 class Background extends React.Component {
@@ -35,20 +45,26 @@ class Background extends React.Component {
     })
   }
 
+  getSlides(slideImages) {
+    var slideShow = slideImages.map((pic, index) => (
+        <div key={index} className="each-slide">
+          <div className="image" style={{'backgroundImage': `url(${pic.url})`}}></div>
+        </div>
+      ))
+
+    return (
+      <Slide {...properties}>
+        {slideShow}
+      </Slide>
+    )
+  }
+
   componentDidMount() {
     this.fetchImages().then(response=>{
         response.json().then(data => {
-          console.log(data)
-          let pics = data.data.allImages.nodes.map((pic, index) => {
-            return(
-              <div key={index} className="gallery">
-                <a href={pic.url}>
-                  <img alt="" src={pic.url}/>
-                </a>
-              </div>
-            )
-          })
-         this.setState({pictures: pics})
+          let pics = data.data.allImages.nodes
+          let slides = this.getSlides(pics)
+         this.setState({pictures: slides})
         })
      })
   }
