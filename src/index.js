@@ -33,15 +33,13 @@ class Background extends React.Component {
 
 
   fetchImages() {
-    var url = "http://localhost:5000/graphql"
-    var query = { "query":"{allImages{nodes{url}}}" }
+    var url = "http://localhost:9292/images"
     return fetch(url, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      method: "POST",
-      body: JSON.stringify(query)
+      method: "GET",
     })
   }
 
@@ -57,11 +55,11 @@ class Background extends React.Component {
         {slideShow}
       </Slide>
     )
-  } 
+  }
   componentDidMount() {
     this.fetchImages().then(response=>{
         response.json().then(data => {
-          let pics = data.data.allImages.nodes
+          let pics = data
           let slides = this.getSlides(pics)
          this.setState({pictures: slides})
         })
