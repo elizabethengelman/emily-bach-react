@@ -33,7 +33,7 @@ class Background extends React.Component {
 
 
   fetchImages() {
-    var url = "http://localhost:9292/images"
+    var url = "https://em-bach-twilio.herokuapp.com/images"
     return fetch(url, {
       headers: {
         'Accept': 'application/json',
