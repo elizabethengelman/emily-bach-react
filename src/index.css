@@ -1,7 +1,15 @@
+.react-slideshow-wrapper .images-wrap {
+  height: 800px;
+}
+.each-slide {
+  height: 100%;
+}
+
 .image {
+  width: 500px;
   background-repeat: no-repeat;
   background-position: center;
-  height: 1000px;
+  height: 100%;
 }
 
 body {

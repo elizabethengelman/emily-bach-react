@@ -57,8 +57,7 @@ class Background extends React.Component {
         {slideShow}
       </Slide>
     )
-  }
-
+  } 
   componentDidMount() {
     this.fetchImages().then(response=>{
         response.json().then(data => {
