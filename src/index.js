@@ -59,6 +59,7 @@ class Background extends React.Component {
   componentDidMount() {
     this.fetchImages().then(response=>{
         response.json().then(data => {
+          console.log(data)
           let pics = data
           let slides = this.getSlides(pics)
          this.setState({pictures: slides})
